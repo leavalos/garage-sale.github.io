@@ -69,7 +69,7 @@ function displayProducts(products) {
         productSize.textContent = `Talle: ${product['Talle']}`;
 
         var productPrice = document.createElement('p');
-        productPrice.textContent = `Precio: ${product['Precio ']}`;
+        productPrice.textContent = `Precio: $${product['Precio']}`;
 
         productDetails.appendChild(productBrand);
         productDetails.appendChild(productCategory);
