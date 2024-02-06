@@ -1,6 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #FF5733;
+    background-image: url('Collage.jpeg');
+    background-size: auto; /* Deja que la imagen mantenga su tamaño original */
+    background-repeat: repeat;
+    color: black;
 }
 
 .encabezado {
@@ -12,11 +15,11 @@ body {
 .product-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; /* Ajuste para centrar las filas */
+    justify-content: space-around;
 }
 
 .product {
-    border: 1px solid #ccc;
+    border: 1px solid #FFFF;
     padding: 10px;
     margin: 10px;
     box-sizing: border-box; /* Incluir el borde y el relleno en el tamaño total */
@@ -25,7 +28,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ccc;
+    background-color: #FFFF;
+    color: black;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7); /* Agrega sombra al contenedor */
+    border-radius: 10px; /* Agrega bordes redondeados */
+    padding: 20px;
 }
 
 .product img {
