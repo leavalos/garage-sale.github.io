@@ -35,9 +35,35 @@ body {
     padding: 20px;
 }
 
+
+.sold-box {
+    position: absolute; /* Establece la posición absoluta */
+    top: 5px; /* Ajusta la posición vertical */
+    left: 5px; /* Ajusta la posición horizontal */
+    background-color: yellow; /* Establece el fondo amarillo */
+    padding: 5px; /* Añade relleno alrededor del texto */
+    z-index: 1; /* Asegura que esté encima de la imagen */
+}
+
+.sold-box h4 {
+    margin: 0; /* Elimina márgenes predeterminados del h3 */
+    color: red; /* Cambia el color del texto a rojo */
+}
+
+.image-container {
+    position: relative; /* Establece la posición relativa para el contenedor de imagen */
+    display: inline-block; /* Permite que el contenedor se ajuste al tamaño del contenido */
+}
+
 .product img {
     max-width: 100%;
     height: auto;
+}
+
+.product.sold img{
+    max-width: 100%;
+    height: auto;
+    filter: grayscale(100%); /* Convierte la imagen en blanco y negro */
 }
 
 .product h3,

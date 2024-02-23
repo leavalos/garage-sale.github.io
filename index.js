@@ -16,7 +16,9 @@ function loadExcel(filePath) {
         /* Convertir datos binarios a una hoja de cálculo de JavaScript */
         var data = new Uint8Array(arraybuffer);
         var arr = new Array();
-        for (var i = 0; i != data.length; ++i) arr[i] = String.fromCharCode(data[i]);
+        for (var i = 0; i != data.length; ++i) {
+            arr[i] = String.fromCharCode(data[i]);
+        }
         var bstr = arr.join("");
         var workbook = XLSX.read(bstr, { type: 'binary' });
 
@@ -49,9 +51,19 @@ function displayProducts(products) {
         var productDiv = document.createElement('div');
         productDiv.classList.add('product');
 
+        if (product['Vendido'] == "Si") {
+            productDiv.classList.add('sold')
+        }
+
+
+        var imageContainer = document.createElement("div")
+        imageContainer.classList.add("image-container")
+
         var productImage = document.createElement('img');
         productImage.src = "https://drive.google.com/thumbnail?id=" + getIdImage(product['Imagen del producto']); // Asegúrate de que la columna se llame 'Imagen'
         productImage.alt = product['Nombre'];
+
+        imageContainer.appendChild(productImage)
 
         var productName = document.createElement('h3');
         productName.textContent = product['Nombre'];
@@ -71,14 +83,27 @@ function displayProducts(products) {
         var productPrice = document.createElement('p');
         productPrice.textContent = `Precio: $${product['Precio']}`;
 
+
         productDetails.appendChild(productBrand);
         productDetails.appendChild(productCategory);
         productDetails.appendChild(productSize);
 
-        productDiv.appendChild(productImage);
+        if (product['Vendido'] == "Si") {
+            var productSold = document.createElement('div')
+            productSold.classList.add("sold-box")
+
+            var productSoldText = document.createElement("h4")
+            productSoldText.textContent = "SOLD";
+            productSold.appendChild(productSoldText);
+            imageContainer.appendChild(productSold);
+        }
+        
+        productDiv.appendChild(imageContainer);
         productDiv.appendChild(productName);
         productDiv.appendChild(productDetails);
         productDiv.appendChild(productPrice);
+
+        
 
         productContainer.appendChild(productDiv);
     });
